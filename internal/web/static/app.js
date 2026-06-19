@@ -1,4 +1,5 @@
 const COLORS = ["R", "G", "B", "Y", "O", "P", "C", "M"];
+const MAX_GRID = 25;
 
 const colorMap = {
   R: "#e53935",
@@ -791,8 +792,8 @@ function init() {
   });
 
   document.getElementById("resize-grid").addEventListener("click", () => {
-    const rows = Math.min(12, Math.max(2, +document.getElementById("rows").value || 5));
-    const cols = Math.min(12, Math.max(2, +document.getElementById("cols").value || 5));
+    const rows = Math.min(MAX_GRID, Math.max(2, +document.getElementById("rows").value || 5));
+    const cols = Math.min(MAX_GRID, Math.max(2, +document.getElementById("cols").value || 5));
     document.getElementById("rows").value = rows;
     document.getElementById("cols").value = cols;
     resetState(rows, cols, true);
