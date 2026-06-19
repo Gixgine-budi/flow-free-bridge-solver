@@ -1,0 +1,5 @@
+3 3
+# Three paths of length 3 along rows / center
+R 0 0 0 2
+G 2 0 2 2
+B 1 0 1 2

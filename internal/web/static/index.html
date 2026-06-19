@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flow Free Bridges Solver</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header class="header">
+      <h1>Flow Free Bridges</h1>
+      <p class="hint">Design puzzles on the board or paste coordinates. Export text for files and CLI.</p>
+    </header>
+
+    <nav class="tabs" role="tablist">
+      <button type="button" class="tab active" data-tab="editor" role="tab" aria-selected="true">Map editor</button>
+      <button type="button" class="tab" data-tab="text" role="tab" aria-selected="false">Text coordinates</button>
+    </nav>
+
+    <section id="panel-editor" class="panel active" role="tabpanel">
+      <div class="toolbar">
+        <label class="size-field">Rows <input id="rows" type="number" min="2" max="12" value="5"></label>
+        <label class="size-field">Cols <input id="cols" type="number" min="2" max="12" value="5"></label>
+        <button type="button" id="resize-grid" class="btn-secondary">Apply size</button>
+      </div>
+
+      <div class="toolbar tools">
+        <span class="toolbar-label">Tool</span>
+        <button type="button" class="tool active" data-tool="dot" title="Place endpoint">Dot</button>
+        <button type="button" class="tool" data-tool="bridge" title="Toggle bridge">Bridge</button>
+        <button type="button" class="tool" data-tool="wall" title="Toggle wall">Wall</button>
+        <button type="button" class="tool" data-tool="erase" title="Clear cell">Erase</button>
+      </div>
+
+      <div class="toolbar colors">
+        <span class="toolbar-label">Color</span>
+        <div id="palette" class="palette"></div>
+      </div>
+
+      <div class="editor-wrap">
+        <div id="editor-grid" class="editor-grid" aria-label="Puzzle map editor"></div>
+      </div>
+
+      <div class="export-bar">
+        <button type="button" id="copy-text" class="btn-secondary">Copy coordinates</button>
+        <button type="button" id="sync-to-text" class="btn-secondary">Open in text tab</button>
+        <span id="copy-status" class="copy-status"></span>
+      </div>
+    </section>
+
+    <section id="panel-text" class="panel" role="tabpanel" hidden>
+      <p class="hint compact">Format: <code>rows cols</code>, then <code>COLOR r1 c1 r2 c2</code>, <code>X r c</code>, <code>W r c</code>.</p>
+      <textarea id="puzzle" rows="12" spellcheck="false"></textarea>
+      <div class="text-actions">
+        <button type="button" id="load-text" class="btn-secondary">Load into editor</button>
+        <button type="button" id="copy-textarea" class="btn-secondary">Copy</button>
+      </div>
+    </section>
+
+    <div class="actions">
+      <button type="button" id="solve">Solve</button>
+      <span id="status"></span>
+    </div>
+
+    <div class="boards">
+      <section>
+        <h2>Input preview</h2>
+        <div id="input-grid" class="grid preview"></div>
+      </section>
+      <section>
+        <h2>Solution</h2>
+        <div id="output-grid" class="grid preview"></div>
+      </section>
+    </div>
+    <pre id="stats"></pre>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

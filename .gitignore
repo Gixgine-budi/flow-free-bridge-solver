@@ -1,0 +1,28 @@
+# Binaries
+/flowcli
+/flowweb
+/flowcli.exe
+/flowweb.exe
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Go build and test artifacts
+*.test
+*.out
+/coverage.out
+/coverage.html
+
+# IDE and OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Local env
+.env
+.env.*
