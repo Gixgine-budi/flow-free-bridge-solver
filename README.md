@@ -1,6 +1,6 @@
 # Flow Free Bridges Solver
 
-Backtracking solver for the Flow Free: Bridges variant.
+Solver berbasis *backtracking* untuk varian Flow Free: Bridges.
 
 ## Build
 
@@ -18,28 +18,28 @@ go build -o flowweb ./cmd/flowweb
 ./flowcli verify puzzles/classic_4x4.txt
 ```
 
-## Web UI
+## Antarmuka Web
 
 ```bash
 ./flowweb
-# open http://localhost:8080
+# buka http://localhost:8080
 ```
 
-The web app includes:
+Aplikasi web ini menyediakan:
 
-- **Map editor** - game-style dark grid; place colored dots, bridges, and walls by clicking cells
-- **Text coordinates** - paste or edit the puzzle file format manually
-- **Copy coordinates** - export editor state to clipboard (`rows cols`, color lines, `X`/`W` lines)
-- **Solve** - runs the backtracking solver and shows input preview + solution
+- **Editor peta** - grid gelap bergaya game; letakkan titik berwarna, jembatan, dan dinding dengan mengklik sel
+- **Koordinat teks** - tempel atau ubah format file puzzle secara manual
+- **Salin koordinat** - ekspor isi editor ke clipboard (`rows cols`, baris warna, baris `X`/`W`)
+- **Solve** - menjalankan solver *backtracking* dan menampilkan pratinjau input + solusinya
 
-## Puzzle format
+## Format puzzle
 
 ```
 rows cols
 R r1 c1 r2 c2
 G r1 c1 r2 c2
-X row col    # bridge (allows crossing)
-W row col    # wall
+X row col    # jembatan (bisa dilintasi silang)
+W row col    # dinding
 ```
 
-Coordinates are 0-indexed. Lines starting with `#` are comments.
+Koordinat dimulai dari 0 (*0-indexed*). Baris yang diawali `#` dianggap komentar.
